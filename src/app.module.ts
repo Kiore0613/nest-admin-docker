@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DatabaseConfig } from './config/typeorm.config';
 import { config } from './config/config';
+import { AccountModule } from './account/account.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { config } from './config/config';
     }),
     UserModule,
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
+    AccountModule,
   ],
   controllers: [AppController],
   providers: [AppService],
